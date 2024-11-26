@@ -6,6 +6,8 @@ import com.alicesouza.gerenciador_tarefas.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UsuarioService {
 
@@ -15,5 +17,9 @@ public class UsuarioService {
     public void postSignUp(UsuarioDTO usuarioDTO){
         Usuario usuario = new Usuario(usuarioDTO);
         usuarioRepository.save(usuario);
+    }
+
+    public List<Usuario> getUsuarios() {
+        return usuarioRepository.findAll();
     }
 }
